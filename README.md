@@ -1,27 +1,35 @@
-# Godot template for 2D games
+# LoopCube
 
-This template provides some basic structure to start a new 2D game with the [Godot engine](https://godotengine.org). 
+## Introduciton
 
-The template currently includes:
- - A main menu
- - A settings menu
- - A playable level
- - Background music
- - Sound effects
+You are chasing the blue cube but stuck in a loop path
 
-Some generic components are present to speed up the prototyping:
- - A menu system with items highlighting on mouseover and clic sounds
- - A *scene* manager. Here, a *scene* is a set of Godot scenes. One for UI/controls, one for game elements. More can be added. 
- Each Godot scene is loaded in a separate node. This allows the main Godot scene to be always loaded, which helps keeping persistent elements between *scene* loads (e.g background music)
- - A sound effects (FX) manager. In Godot, an AudioStreamPlayer2D can only play one sound at a time. 
- So if multiple sounds have to be played at the same time, multiple AudioStreamPlayer2D must be created and properly managed. 
- The *FXPlayer* class can create a predetermined number of AudioStreamPlayer2D and automatically choose an unused one when asked to play a sound.
- - A settings manager that saves and loads game settings. A signal is emitted when a setting is changed so that it can be handled by another class. 
- Currently stores if the music and/or the sound effects must be played but can easily be expanded.
- - Basic player movement whith sound effect played on collision
- - A pause screen
- 
-The template can be tested online [here](https://benjaminnavarro.github.io/godot-template-2d/).
- 
-# Preview
- ![Template2D](https://media.giphy.com/media/U4vXCBuqDroFjDrQEd/giphy.gif)
+It is a gamejam achievement which theme is loop
+
+Made in Godot, using temlpate: https://github.com/BenjaminNavarro/godot-template-2d
+
+## Tutorial
+
+WASD or Arrow keys control movement
+
+Space Key control jump
+
+Target is to catch blue cube
+
+## Elsewhere
+
+itch.io: https://cheapmeow.itch.io/loopcube
+
+Youtube: https://youtu.be/7w3esMJgXfY
+
+## Screenshots
+
+![1](https://user-images.githubusercontent.com/88229072/213200936-48a620ba-8052-4660-b693-52be89a8337e.jpg)
+
+![2](https://user-images.githubusercontent.com/88229072/213200953-2c22d9ae-67a3-45b6-b2cc-0c7b4e053a5e.jpg)
+
+![3](https://user-images.githubusercontent.com/88229072/213200976-b417d642-15b6-42dc-9082-1e5ebcb902ad.jpg)
+
+![4](https://user-images.githubusercontent.com/88229072/213201004-3bfb8157-2efe-4333-93a9-ed2832d83683.jpg)
+
+![5](https://user-images.githubusercontent.com/88229072/213201024-24ac2906-264b-4da5-bb6e-6be034ef3c4d.jpg)
