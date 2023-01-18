@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/UI/MainMenu/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/UI/MenuItem.tscn" type="PackedScene" id=2]
+
+[node name="UI" type="Control"]
+
+[node name="MainMenu" type="VBoxContainer" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+alignment = 1
+script = ExtResource( 1 )
+
+[node name="Start" parent="MainMenu" instance=ExtResource( 2 )]
+margin_top = 449.0
+margin_right = 1920.0
+margin_bottom = 507.0
+item_name = "START"
+
+[node name="Options" parent="MainMenu" instance=ExtResource( 2 )]
+margin_top = 511.0
+margin_right = 1920.0
+margin_bottom = 569.0
+item_name = "OPTIONS"
+
+[node name="Exit" parent="MainMenu" instance=ExtResource( 2 )]
+margin_top = 573.0
+margin_right = 1920.0
+margin_bottom = 631.0
+item_name = "EXIT"

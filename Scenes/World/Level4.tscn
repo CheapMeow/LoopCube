@@ -1,0 +1,361 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Assets/World/Wall.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/World/Level4/Player4.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/World/Level4/RotRoot4.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/CustomClass/WorldLevel.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/World/Level4/BlueCube4.gd" type="Script" id=5]
+[ext_resource path="res://Effects/Trail2D.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Effects/HitEffect.tscn" type="PackedScene" id=7]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 0, 0, 50, 0, 50, 50, 0, 50 )
+
+[sub_resource type="TileSet" id=2]
+0/name = "icon.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 0.196078, 0.176471, 0.176471, 1 )
+0/region = Rect2( 0, 0, 50, 50 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 15, 15 )
+
+[node name="World" type="Node2D"]
+pause_mode = 1
+position = Vector2( -15, -10 )
+script = ExtResource( 4 )
+level_index = 4
+
+[node name="RotRoot" type="Node2D" parent="."]
+position = Vector2( 975, 550 )
+script = ExtResource( 3 )
+
+[node name="TileMap" type="TileMap" parent="RotRoot"]
+position = Vector2( -975, -550 )
+tile_set = SubResource( 2 )
+cell_size = Vector2( 50, 50 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 26, 0, 0, 27, 0, 0, 28, 0, 0, 29, 0, 0, 30, 0, 0, 31, 0, 0, 32, 0, 0, 33, 0, 0, 34, 0, 0, 35, 0, 0, 36, 0, 0, 37, 0, 0, 38, 0, 0, 65536, 0, 0, 65537, 0, 0, 65573, 0, 0, 65574, 0, 0, 131072, 0, 0, 131073, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131105, 0, 0, 131106, 0, 0, 131107, 0, 0, 131109, 0, 0, 131110, 0, 0, 196608, 0, 0, 196609, 0, 0, 196611, 0, 0, 196643, 0, 0, 196645, 0, 0, 196646, 0, 0, 262144, 0, 0, 262145, 0, 0, 262147, 0, 0, 262179, 0, 0, 262181, 0, 0, 262182, 0, 0, 327680, 0, 0, 327681, 0, 0, 327717, 0, 0, 327718, 0, 0, 393216, 0, 0, 393217, 0, 0, 393253, 0, 0, 393254, 0, 0, 458752, 0, 0, 458753, 0, 0, 458789, 0, 0, 458790, 0, 0, 524288, 0, 0, 524289, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0, 524325, 0, 0, 524326, 0, 0, 589824, 0, 0, 589825, 0, 0, 589841, 0, 0, 589845, 0, 0, 589861, 0, 0, 589862, 0, 0, 655360, 0, 0, 655361, 0, 0, 655377, 0, 0, 655381, 0, 0, 655397, 0, 0, 655398, 0, 0, 720896, 0, 0, 720897, 0, 0, 720913, 0, 0, 720917, 0, 0, 720933, 0, 0, 720934, 0, 0, 786432, 0, 0, 786433, 0, 0, 786449, 0, 0, 786453, 0, 0, 786469, 0, 0, 786470, 0, 0, 851968, 0, 0, 851969, 0, 0, 851985, 0, 0, 851986, 0, 0, 851987, 0, 0, 851988, 0, 0, 851989, 0, 0, 852005, 0, 0, 852006, 0, 0, 917504, 0, 0, 917505, 0, 0, 917541, 0, 0, 917542, 0, 0, 983040, 0, 0, 983041, 0, 0, 983077, 0, 0, 983078, 0, 0, 1048576, 0, 0, 1048577, 0, 0, 1048613, 0, 0, 1048614, 0, 0, 1114112, 0, 0, 1114113, 0, 0, 1114115, 0, 0, 1114147, 0, 0, 1114149, 0, 0, 1114150, 0, 0, 1179648, 0, 0, 1179649, 0, 0, 1179651, 0, 0, 1179683, 0, 0, 1179685, 0, 0, 1179686, 0, 0, 1245184, 0, 0, 1245185, 0, 0, 1245187, 0, 0, 1245188, 0, 0, 1245189, 0, 0, 1245217, 0, 0, 1245218, 0, 0, 1245219, 0, 0, 1245221, 0, 0, 1245222, 0, 0, 1310720, 0, 0, 1310721, 0, 0, 1310757, 0, 0, 1310758, 0, 0, 1376256, 0, 0, 1376257, 0, 0, 1376258, 0, 0, 1376259, 0, 0, 1376260, 0, 0, 1376261, 0, 0, 1376262, 0, 0, 1376263, 0, 0, 1376264, 0, 0, 1376265, 0, 0, 1376266, 0, 0, 1376267, 0, 0, 1376268, 0, 0, 1376269, 0, 0, 1376270, 0, 0, 1376271, 0, 0, 1376272, 0, 0, 1376273, 0, 0, 1376274, 0, 0, 1376275, 0, 0, 1376276, 0, 0, 1376277, 0, 0, 1376278, 0, 0, 1376279, 0, 0, 1376280, 0, 0, 1376281, 0, 0, 1376282, 0, 0, 1376283, 0, 0, 1376284, 0, 0, 1376285, 0, 0, 1376286, 0, 0, 1376287, 0, 0, 1376288, 0, 0, 1376289, 0, 0, 1376290, 0, 0, 1376291, 0, 0, 1376292, 0, 0, 1376293, 0, 0, 1376294, 0, 0 )
+
+[node name="Player" type="RigidBody2D" parent="RotRoot"]
+position = Vector2( -2, 293 )
+mass = 500.0
+gravity_scale = -5.0
+contacts_reported = 10
+contact_monitor = true
+script = ExtResource( 2 )
+
+[node name="Polygon2D" type="Polygon2D" parent="RotRoot/Player"]
+color = Color( 0.796078, 0.113725, 0.113725, 1 )
+polygon = PoolVector2Array( -15, 15, 15, 15, 15, -15, -15, -15 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotRoot/Player"]
+polygon = PoolVector2Array( -15, 15, 15, 15, 15, -15, -15, -15 )
+
+[node name="Trail2D" parent="RotRoot/Player" instance=ExtResource( 6 )]
+
+[node name="BlueCube" type="RigidBody2D" parent="RotRoot"]
+position = Vector2( 0, -325 )
+mass = 200.0
+gravity_scale = 5.0
+contacts_reported = 10
+contact_monitor = true
+script = ExtResource( 5 )
+
+[node name="Polygon2D" type="Polygon2D" parent="RotRoot/BlueCube"]
+color = Color( 0.47451, 0.384314, 1, 1 )
+polygon = PoolVector2Array( -15, 15, 15, 15, 15, -15, -15, -15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RotRoot/BlueCube"]
+shape = SubResource( 3 )
+
+[node name="Trail2D" parent="RotRoot/BlueCube" instance=ExtResource( 6 )]
+
+[node name="Balls" type="Node2D" parent="RotRoot"]
+position = Vector2( -975, -550 )
+
+[node name="SmallBall" type="RigidBody2D" parent="RotRoot/Balls"]
+position = Vector2( 1329, 372 )
+mass = 20.0
+contacts_reported = 10
+
+[node name="Polygon2D" type="Polygon2D" parent="RotRoot/Balls/SmallBall"]
+position = Vector2( -62.5, -62.5 )
+color = Color( 0.196078, 0.176471, 0.176471, 1 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotRoot/Balls/SmallBall"]
+position = Vector2( -62.5, -62.5 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="SmallBall2" type="RigidBody2D" parent="RotRoot/Balls"]
+position = Vector2( 658, 209 )
+mass = 20.0
+contacts_reported = 10
+
+[node name="Polygon2D" type="Polygon2D" parent="RotRoot/Balls/SmallBall2"]
+position = Vector2( -62.5, -62.5 )
+color = Color( 0.196078, 0.176471, 0.176471, 1 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotRoot/Balls/SmallBall2"]
+position = Vector2( -62.5, -62.5 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="SmallBall3" type="RigidBody2D" parent="RotRoot/Balls"]
+position = Vector2( 364, 507 )
+mass = 20.0
+contacts_reported = 10
+
+[node name="Polygon2D" type="Polygon2D" parent="RotRoot/Balls/SmallBall3"]
+position = Vector2( -62.5, -62.5 )
+color = Color( 0.196078, 0.176471, 0.176471, 1 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotRoot/Balls/SmallBall3"]
+position = Vector2( -62.5, -62.5 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="SmallBall4" type="RigidBody2D" parent="RotRoot/Balls"]
+position = Vector2( 713, 969 )
+mass = 20.0
+contacts_reported = 10
+
+[node name="Polygon2D" type="Polygon2D" parent="RotRoot/Balls/SmallBall4"]
+position = Vector2( -62.5, -62.5 )
+color = Color( 0.196078, 0.176471, 0.176471, 1 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotRoot/Balls/SmallBall4"]
+position = Vector2( -62.5, -62.5 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="SmallBall5" type="RigidBody2D" parent="RotRoot/Balls"]
+position = Vector2( 1163, 197 )
+mass = 20.0
+contacts_reported = 10
+
+[node name="Polygon2D" type="Polygon2D" parent="RotRoot/Balls/SmallBall5"]
+position = Vector2( -62.5, -62.5 )
+color = Color( 0.196078, 0.176471, 0.176471, 1 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotRoot/Balls/SmallBall5"]
+position = Vector2( -62.5, -62.5 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="SmallBall6" type="RigidBody2D" parent="RotRoot/Balls"]
+position = Vector2( 1657, 749 )
+mass = 20.0
+contacts_reported = 10
+
+[node name="Polygon2D" type="Polygon2D" parent="RotRoot/Balls/SmallBall6"]
+position = Vector2( -62.5, -62.5 )
+color = Color( 0.196078, 0.176471, 0.176471, 1 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotRoot/Balls/SmallBall6"]
+position = Vector2( -62.5, -62.5 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="SmallBall7" type="RigidBody2D" parent="RotRoot/Balls"]
+position = Vector2( 1074, 926 )
+mass = 20.0
+contacts_reported = 10
+
+[node name="Polygon2D" type="Polygon2D" parent="RotRoot/Balls/SmallBall7"]
+position = Vector2( -62.5, -62.5 )
+color = Color( 0.196078, 0.176471, 0.176471, 1 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotRoot/Balls/SmallBall7"]
+position = Vector2( -62.5, -62.5 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="SmallBall8" type="RigidBody2D" parent="RotRoot/Balls"]
+position = Vector2( 1320, 571 )
+mass = 20.0
+contacts_reported = 10
+
+[node name="Polygon2D" type="Polygon2D" parent="RotRoot/Balls/SmallBall8"]
+position = Vector2( -62.5, -62.5 )
+color = Color( 0.196078, 0.176471, 0.176471, 1 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotRoot/Balls/SmallBall8"]
+position = Vector2( -62.5, -62.5 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="SmallBall9" type="RigidBody2D" parent="RotRoot/Balls"]
+position = Vector2( 565, 385 )
+mass = 20.0
+contacts_reported = 10
+
+[node name="Polygon2D" type="Polygon2D" parent="RotRoot/Balls/SmallBall9"]
+position = Vector2( -62.5, -62.5 )
+color = Color( 0.196078, 0.176471, 0.176471, 1 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotRoot/Balls/SmallBall9"]
+position = Vector2( -62.5, -62.5 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="SmallBall10" type="RigidBody2D" parent="RotRoot/Balls"]
+position = Vector2( 1391, 149 )
+mass = 20.0
+contacts_reported = 10
+
+[node name="Polygon2D" type="Polygon2D" parent="RotRoot/Balls/SmallBall10"]
+position = Vector2( -62.5, -62.5 )
+color = Color( 0.196078, 0.176471, 0.176471, 1 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotRoot/Balls/SmallBall10"]
+position = Vector2( -62.5, -62.5 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="SmallBall11" type="RigidBody2D" parent="RotRoot/Balls"]
+position = Vector2( 588, 834 )
+mass = 20.0
+contacts_reported = 10
+
+[node name="Polygon2D" type="Polygon2D" parent="RotRoot/Balls/SmallBall11"]
+position = Vector2( -62.5, -62.5 )
+color = Color( 0.196078, 0.176471, 0.176471, 1 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotRoot/Balls/SmallBall11"]
+position = Vector2( -62.5, -62.5 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="SmallBall12" type="RigidBody2D" parent="RotRoot/Balls"]
+position = Vector2( 869, 131 )
+mass = 20.0
+contacts_reported = 10
+
+[node name="Polygon2D" type="Polygon2D" parent="RotRoot/Balls/SmallBall12"]
+position = Vector2( -62.5, -62.5 )
+color = Color( 0.196078, 0.176471, 0.176471, 1 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotRoot/Balls/SmallBall12"]
+position = Vector2( -62.5, -62.5 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="SmallBall13" type="RigidBody2D" parent="RotRoot/Balls"]
+position = Vector2( 1565, 555 )
+mass = 20.0
+contacts_reported = 10
+
+[node name="Polygon2D" type="Polygon2D" parent="RotRoot/Balls/SmallBall13"]
+position = Vector2( -62.5, -62.5 )
+color = Color( 0.196078, 0.176471, 0.176471, 1 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotRoot/Balls/SmallBall13"]
+position = Vector2( -62.5, -62.5 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="SmallBall14" type="RigidBody2D" parent="RotRoot/Balls"]
+position = Vector2( 786, 837 )
+mass = 20.0
+contacts_reported = 10
+
+[node name="Polygon2D" type="Polygon2D" parent="RotRoot/Balls/SmallBall14"]
+position = Vector2( -62.5, -62.5 )
+color = Color( 0.196078, 0.176471, 0.176471, 1 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotRoot/Balls/SmallBall14"]
+position = Vector2( -62.5, -62.5 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="SmallBall15" type="RigidBody2D" parent="RotRoot/Balls"]
+position = Vector2( 1263, 719 )
+mass = 20.0
+contacts_reported = 10
+
+[node name="Polygon2D" type="Polygon2D" parent="RotRoot/Balls/SmallBall15"]
+position = Vector2( -62.5, -62.5 )
+color = Color( 0.196078, 0.176471, 0.176471, 1 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotRoot/Balls/SmallBall15"]
+position = Vector2( -62.5, -62.5 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="SmallBall16" type="RigidBody2D" parent="RotRoot/Balls"]
+position = Vector2( 498, 634 )
+mass = 20.0
+contacts_reported = 10
+
+[node name="Polygon2D" type="Polygon2D" parent="RotRoot/Balls/SmallBall16"]
+position = Vector2( -62.5, -62.5 )
+color = Color( 0.196078, 0.176471, 0.176471, 1 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotRoot/Balls/SmallBall16"]
+position = Vector2( -62.5, -62.5 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="SmallBall17" type="RigidBody2D" parent="RotRoot/Balls"]
+position = Vector2( 375, 259 )
+mass = 20.0
+contacts_reported = 10
+
+[node name="Polygon2D" type="Polygon2D" parent="RotRoot/Balls/SmallBall17"]
+position = Vector2( -62.5, -62.5 )
+color = Color( 0.196078, 0.176471, 0.176471, 1 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotRoot/Balls/SmallBall17"]
+position = Vector2( -62.5, -62.5 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="SmallBall18" type="RigidBody2D" parent="RotRoot/Balls"]
+position = Vector2( 1475, 355 )
+mass = 20.0
+contacts_reported = 10
+
+[node name="Polygon2D" type="Polygon2D" parent="RotRoot/Balls/SmallBall18"]
+position = Vector2( -62.5, -62.5 )
+color = Color( 0.196078, 0.176471, 0.176471, 1 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotRoot/Balls/SmallBall18"]
+position = Vector2( -62.5, -62.5 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="SmallBall19" type="RigidBody2D" parent="RotRoot/Balls"]
+position = Vector2( 696, 637 )
+mass = 20.0
+contacts_reported = 10
+
+[node name="Polygon2D" type="Polygon2D" parent="RotRoot/Balls/SmallBall19"]
+position = Vector2( -62.5, -62.5 )
+color = Color( 0.196078, 0.176471, 0.176471, 1 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotRoot/Balls/SmallBall19"]
+position = Vector2( -62.5, -62.5 )
+polygon = PoolVector2Array( 25, 0, 100, 0, 125, 25, 125, 100, 100, 125, 25, 125, 0, 100, 0, 25 )
+
+[node name="HitEffect" parent="RotRoot" instance=ExtResource( 7 )]
+position = Vector2( 375, 400 )

@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/UI/Salute/Salute.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/UI/MenuItem.tscn" type="PackedScene" id=4]
+
+[node name="UI" type="Control"]
+pause_mode = 2
+
+[node name="Menu" type="VBoxContainer" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+alignment = 1
+script = ExtResource( 1 )
+
+[node name="NextLevel" parent="Menu" instance=ExtResource( 4 )]
+margin_top = 387.0
+margin_right = 1920.0
+margin_bottom = 445.0
+item_name = "NEXT LEVEL"
+
+[node name="Return" parent="Menu" instance=ExtResource( 4 )]
+margin_top = 449.0
+margin_right = 1920.0
+margin_bottom = 507.0
+item_name = "RETURN"
+
+[node name="Restart" parent="Menu" instance=ExtResource( 4 )]
+margin_top = 511.0
+margin_right = 1920.0
+margin_bottom = 569.0
+item_name = "RESTART"
+
+[node name="Options" parent="Menu" instance=ExtResource( 4 )]
+margin_top = 573.0
+margin_right = 1920.0
+margin_bottom = 631.0
+item_name = "OPTIONS"
+
+[node name="Exit" parent="Menu" instance=ExtResource( 4 )]
+margin_top = 635.0
+margin_right = 1920.0
+margin_bottom = 693.0
+item_name = "EXIT"

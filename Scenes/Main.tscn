@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/World/Main/Main.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/World/Main/FXPlayer.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Sound/background_music.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Sound/FX/click.wav" type="AudioStream" id=4]
+[ext_resource path="res://Scenes/UI/OptionsMenu.tscn" type="PackedScene" id=5]
+
+[node name="Node2D" type="Node2D"]
+pause_mode = 2
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+pause_mode = 2
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+pause_mode = 2
+size = Vector2( 1920, 1080 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Root" type="Node2D" parent="ViewportContainer/Viewport"]
+script = ExtResource( 1 )
+
+[node name="World" type="Node2D" parent="ViewportContainer/Viewport/Root"]
+pause_mode = 1
+
+[node name="UI" type="Control" parent="ViewportContainer/Viewport/Root"]
+
+[node name="Options" parent="ViewportContainer/Viewport/Root" instance=ExtResource( 5 )]
+visible = false
+
+[node name="FXPlayer" type="Node2D" parent="ViewportContainer/Viewport/Root"]
+pause_mode = 1
+script = ExtResource( 2 )
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="ViewportContainer/Viewport/Root"]
+pause_mode = 1
+stream = ExtResource( 3 )
+bus = "Background"
+
+[node name="Click" type="AudioStreamPlayer" parent="ViewportContainer/Viewport/Root"]
+pause_mode = 1
+stream = ExtResource( 4 )
