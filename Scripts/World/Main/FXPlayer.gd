@@ -4,8 +4,8 @@ class_name FXPlayer
 
 export var fx_players_count := 10
 
-# Bug: AudioStreamPlayer2D does not work when it is inside a Viewport
-# So here use AudioStreamPlayer
+# If AudioStreamPlayer2D does not work when it is inside a Viewport
+# make sure property of Viewport: audio_listener_enable_2d is true
 func _ready():
 	for i in range(fx_players_count):
 		add_child(AudioStreamPlayer.new())
