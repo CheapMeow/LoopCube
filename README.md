@@ -6,7 +6,7 @@ You are chasing the blue cube but stuck in a loop path
 
 It is a gamejam achievement which theme is loop
 
-Made in Godot, using temlpate: https://github.com/BenjaminNavarro/godot-template-2d
+Made in Godot 3.5.1, using temlpate: https://github.com/BenjaminNavarro/godot-template-2d
 
 ## Tutorial
 
